@@ -27,7 +27,87 @@ A dark Neovim colorscheme inspired by deep ocean water at night — five colors 
 
 ---
 
+## Requirements
+
+- Neovim >= 0.9
+- A terminal with `termguicolors` support
+- [JetBrainsMono Nerd Font](https://www.nerdfonts.com) (recommended)
+
+---
+
+## Installation
+
+### lazy.nvim
+
+```lua
+{
+  "54L1M/Oshen.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    require("oshen").setup({
+      transparent = true, -- set false for opaque background
+    })
+    vim.cmd.colorscheme("Oshen")
+  end,
+}
+```
+
+### rocks.nvim
+
+```toml
+[plugins]
+"Oshen.nvim" = "scm"
+```
+
+---
+
+## Configuration
+
+```lua
+require("oshen").setup({
+  -- Remove all background colors so your terminal wallpaper shows through.
+  -- Pairs well with ghostty's background-opacity setting.
+  transparent = false, -- default
+})
+```
+
+---
+
+## Features
+
+- **Transparent background** support — your wallpaper shows through everywhere
+- **Treesitter** semantic highlight groups
+- **LSP** diagnostics and semantic tokens
+- **Modular architecture** — groups and integrations are isolated files, easy to extend
+- **JetBrainsMono Nerd Font** glyph-aware
+
+### Plugin support
+
+| Plugin                                                                                   |                  |
+| ---------------------------------------------------------------------------------------- | ---------------- |
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)                              | ✓                |
+| [blink.cmp](https://github.com/Saghen/blink.cmp)                                         | ✓                |
+| [oil.nvim](https://github.com/stevearc/oil.nvim)                                         | ✓                |
+| [snacks.nvim](https://github.com/folke/snacks.nvim)                                      | ✓                |
+| [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)                             | ✓ built-in theme |
+| [which-key.nvim](https://github.com/folke/which-key.nvim)                                | ✓                |
+| [vim-illuminate](https://github.com/RRethy/vim-illuminate)                               | ✓                |
+| [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)                                     | ✓                |
+| [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)     | ✓                |
+| [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)                        | ✓                |
+| [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)    | ✓                |
+| [nvim-dap](https://github.com/mfussenegger/nvim-dap)                                     | ✓                |
+| [harpoon](https://github.com/ThePrimeagen/harpoon)                                       | ✓                |
+| [mini.nvim](https://github.com/echasnovski/mini.nvim)                                    | ✓                |
+| [tiny-inline-diagnostic.nvim](https://github.com/rachartier/tiny-inline-diagnostic.nvim) | ✓                |
+
+---
+
 ## Palette
+
+<details>
+<summary>Source colors</summary>
 
 The entire scheme is derived from five source colors. Nothing more.
 
@@ -39,9 +119,10 @@ The entire scheme is derived from five source colors. Nothing more.
 | Borders / Accents  | `#457b9d` | ![#457b9d](https://placehold.co/14x14/457b9d/457b9d.png) |
 | Selection / UI     | `#1d3567` | ![#1d3567](https://placehold.co/14x14/1d3567/1d3567.png) |
 
-All other colors in the palette are derived from these five, keeping the scheme tight and cohesive.
+</details>
 
-### Full palette
+<details>
+<summary>Full palette</summary>
 
 **Backgrounds**
 
@@ -89,74 +170,7 @@ All other colors in the palette are derived from these five, keeping the scheme 
 | `red`      | `#e05c6e` | ![#e05c6e](https://placehold.co/14x14/e05c6e/e05c6e.png) | Errors, git deleted                 |
 | `navy`     | `#1d3567` | ![#1d3567](https://placehold.co/14x14/1d3567/1d3567.png) | Visual selection, deep UI chrome    |
 
----
-
-## Features
-
-- **Transparent background** support — your wallpaper shows through everywhere
-- **Treesitter** semantic highlight groups
-- **LSP** diagnostics and semantic tokens
-- **Modular architecture** — groups and integrations are isolated files, easy to extend
-- **JetBrainsMono Nerd Font** glyph-aware
-
-### Plugin support
-
-| Plugin                                                                                   |                  |
-| ---------------------------------------------------------------------------------------- | ---------------- |
-| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)                              | ✓                |
-| [blink.cmp](https://github.com/Saghen/blink.cmp)                                         | ✓                |
-| [oil.nvim](https://github.com/stevearc/oil.nvim)                                         | ✓                |
-| [snacks.nvim](https://github.com/folke/snacks.nvim)                                      | ✓                |
-| [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)                             | ✓ built-in theme |
-| [which-key.nvim](https://github.com/folke/which-key.nvim)                                | ✓                |
-| [vim-illuminate](https://github.com/RRethy/vim-illuminate)                               | ✓                |
-| [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)                                     | ✓                |
-| [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)     | ✓                |
-| [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)                        | ✓                |
-| [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)    | ✓                |
-| [nvim-dap](https://github.com/mfussenegger/nvim-dap)                                     | ✓                |
-| [harpoon](https://github.com/ThePrimeagen/harpoon)                                       | ✓                |
-| [mini.nvim](https://github.com/echasnovski/mini.nvim)                                    | ✓                |
-| [tiny-inline-diagnostic.nvim](https://github.com/rachartier/tiny-inline-diagnostic.nvim) | ✓                |
-
----
-
-## Installation
-
-### lazy.nvim
-
-```lua
-{
-  "54L1M/Oshen.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    require("oshen").setup({
-      transparent = true, -- set false for opaque background
-    })
-    vim.cmd.colorscheme("Oshen")
-  end,
-}
-```
-
-### rocks.nvim
-
-```toml
-[plugins]
-"Oshen.nvim" = "scm"
-```
-
----
-
-## Configuration
-
-```lua
-require("oshen").setup({
-  -- Remove all background colors so your terminal wallpaper shows through.
-  -- Pairs well with ghostty's background-opacity setting.
-  transparent = false, -- default
-})
-```
+</details>
 
 ---
 
