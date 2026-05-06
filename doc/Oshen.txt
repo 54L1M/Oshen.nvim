@@ -1,0 +1,150 @@
+*Oshen.txt*  A dark Neovim colorscheme built from five colors.
+
+                                                                    *Oshen*
+
+OSHEN - COLORSCHEME DOCUMENTATION
+
+Author:   salim (54L1M)
+License:  MIT
+Homepage: https://github.com/54L1M/Oshen.nvim
+
+==============================================================================
+CONTENTS                                                    *Oshen-contents*
+
+  1. Introduction ........................... |Oshen-introduction|
+  2. Installation ........................... |Oshen-installation|
+  3. Configuration .......................... |Oshen-configuration|
+  4. Palette ................................ |Oshen-palette|
+  5. Lualine integration .................... |Oshen-lualine|
+  6. Tmux ................................... |Oshen-tmux|
+
+==============================================================================
+1. INTRODUCTION                                         *Oshen-introduction*
+
+Oshen is a dark Neovim colorscheme derived from five hand-picked colors:
+
+  #ffb703  amber    keywords, numbers, search
+  #f1faee  cream    foreground text
+  #abdadc  teal     functions, info diagnostics
+  #457b9d  steel    borders, statusline accents
+  #1d3567  navy     visual selection, UI chrome
+
+All other colors (backgrounds, strings, types, diagnostics) are derived
+from these five. Designed for transparent terminal backgrounds.
+
+Supports: Treesitter, LSP semantic tokens, Gitsigns, blink.cmp, Oil,
+Snacks, WhichKey, Illuminate, UFO, render-markdown, todo-comments,
+Treesitter Context, DAP, Harpoon, Mini, tiny-inline-diagnostics.
+
+==============================================================================
+2. INSTALLATION                                         *Oshen-installation*
+
+With lazy.nvim: >lua
+
+  {
+    "54L1M/Oshen.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("oshen").setup({ transparent = true })
+      vim.cmd.colorscheme("Oshen")
+    end,
+  }
+<
+With rocks.nvim: >lua
+
+  -- rocks.toml
+  [plugins]
+  "Oshen.nvim" = "scm"
+<
+
+==============================================================================
+3. CONFIGURATION                                       *Oshen-configuration*
+
+Call `setup()` before loading the colorscheme. All options are optional.
+
+>lua
+  require("oshen").setup({
+    transparent = false,  -- remove all background colors
+  })
+<
+                                                       *shen.setup()*
+`require("oshen").setup({opts})`
+
+  Options ~
+  transparent    boolean (default: false)
+                 When true, all background highlights are removed so your
+                 terminal's background (and wallpaper) show through.
+
+==============================================================================
+4. PALETTE                                                 *Oshen-palette*
+
+You can read the full color table from other plugins: >lua
+
+  local p = require("oshen").get_palette()
+  -- p.amber, p.teal, p.green, p.red, p.bg, p.fg, ...
+<
+                                                    *shen.get_palette()*
+`require("oshen").get_palette()` → table
+
+  Returns the full palette table. Useful for status line plugins,
+  indent guides, or any plugin that accepts raw hex colors.
+
+  Keys ~
+  amber      "#ffb703"  keywords, numbers
+  cream      "#f1faee"  foreground (alias: fg)
+  teal       "#abdadc"  functions
+  steel      "#457b9d"  borders, accents
+  navy       "#1d3567"  selection
+  bg         "#0e1117"  background
+  bg_dark    "#090c12"  panels, popups
+  bg_hl      "#131c2b"  cursorline
+  green      "#a8c97f"  strings, git added
+  lavender   "#c3a0d8"  types, hints
+  comment    "#344f6a"  comments
+  dim        "#6e7f90"  operators
+  red        "#e05c6e"  errors, git deleted
+  orange     "#e8944a"  warnings
+  fg_dim     "#8899aa"  inactive text
+
+==============================================================================
+5. LUALINE INTEGRATION                                      *Oshen-lualine*
+
+Use the built-in lualine theme: >lua
+
+  require("lualine").setup({
+    options = {
+      theme = require("oshen.integrations.lualine"),
+      section_separators = "",
+      component_separators = "",
+    },
+  })
+<
+Mode colors ~
+  NORMAL   teal     (#abdadc)
+  INSERT   green    (#a8c97f)
+  VISUAL   lavender (#c3a0d8)
+  COMMAND  amber    (#ffb703)
+  REPLACE  red      (#e05c6e)
+
+All `b` and `c` sections use `NONE` background for transparency.
+
+==============================================================================
+6. TMUX                                                       *Oshen-tmux*
+
+A matching tmux palette is distributed alongside shenfiles.
+Replace the `CUSTOM PALETTE` block in `~/.config/tmux/tmux.conf` with
+the contents of `p4nda-tmux-palette.conf`. >
+
+  @thm_bg        #0e1117
+  @thm_fg        #f1faee
+  @thm_blue      #abdadc   (teal — functions)
+  @thm_yellow    #ffb703   (amber — keywords)
+  @thm_green     #a8c97f   (strings)
+  @thm_mauve     #c3a0d8   (types)
+  @thm_red       #e05c6e   (errors)
+  @thm_peach     #e8944a   (warnings)
+<
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:
