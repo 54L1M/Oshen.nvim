@@ -4,12 +4,7 @@ A dark Neovim colorscheme inspired by deep ocean water at night — five colors 
 
 > Named after _shenfiles_, my personal dotfiles.
 
-<details>
-<summary>Code</summary>
-
 ![Code](assets/oshen.png)
-
-</details>
 
 <details>
 <summary>Oil</summary>
