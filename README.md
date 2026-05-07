@@ -285,9 +285,9 @@ font-family = "JetBrainsMono Nerd Font Mono"
 
 ## Contributing
 
-Issues and PRs are welcome — especially for plugin integrations not listed
-above. When adding a new integration, follow the pattern in
-`lua/oshen/integrations/` and open a PR with a brief description of the plugin.
+Issues and PRs are welcome — especially for plugin integrations not listed above.
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for setup instructions, the integration pattern, commit style, and PR guidelines.
 
 ---
 
