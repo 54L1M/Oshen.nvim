@@ -186,13 +186,13 @@ require("lualine").setup({
 
 Mode colors:
 
-| Mode    | Color              |
-| ------- | ------------------ |
-| NORMAL  | `#abdadc` teal     |
-| INSERT  | `#a8c97f` green    |
-| VISUAL  | `#c3a0d8` lavender |
-| COMMAND | `#ffb703` amber    |
-| REPLACE | `#e05c6e` red      |
+| Mode    | Hex      | Name     | Preview                                                |
+| ------- | ---------|----------|--------------------------------------------------------|
+| NORMAL  | `#abdadc`| teal     |![#abdadc](https://placehold.co/14x14/abdadc/abdadc.png)|
+| INSERT  | `#a8c97f`| green    |![#a8c97f](https://placehold.co/14x14/a8c97f/a8c97f.png)|
+| VISUAL  | `#c3a0d8`| lavender |![#c3a0d8](https://placehold.co/14x14/c3a0d8/c3a0d8.png)|
+| COMMAND | `#ffb703`| amber    |![#ffb703](https://placehold.co/14x14/ffb703/ffb703.png)|
+| REPLACE | `#e05c6e`| red      |![#e05c6e](https://placehold.co/14x14/e05c6e/e05c6e.png)|
 
 ---
 
